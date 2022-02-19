@@ -35,12 +35,12 @@ const PREFIX: &str = "candy_machine";
 // here just in case solana removes the var
 const BLOCK_HASHES: &str = "SysvarRecentB1ockHashes11111111111111111111";
 #[program]
-pub mod nft_candy_machine_v2 {
+pub mod nft_candy_machine_v2 {  //* L38 ~ L649
 
     use super::*;
 
-    pub fn mint_nft<'info>(
-        ctx: Context<'_, '_, '_, 'info, MintNFT<'info>>,
+    pub fn mint_nft<'info>(  //* L42 ~ L458
+        ctx: Context<'_, '_, '_, 'info, MintNFT<'info>>,    //* ctx.accounts -> #L702
         creator_bump: u8,
     ) -> ProgramResult {
         let candy_machine = &mut ctx.accounts.candy_machine;    //* #707의 candy_machine 가변참조. 얘는 #761~773의 struct를 가짐
